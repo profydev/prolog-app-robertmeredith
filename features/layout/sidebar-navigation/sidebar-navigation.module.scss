@@ -18,10 +18,6 @@
   &.isCollapsed {
     @media (min-width: breakpoint.$desktop) {
       width: 5.1875rem;
-
-      .logo {
-        width: 1.4375rem;
-      }
     }
   }
 }
@@ -53,6 +49,32 @@
 
   @media (min-width: breakpoint.$desktop) {
     margin: space.$s0 space.$s4;
+  }
+}
+
+.logoSmall {
+  composes: logo;
+  width: 1.4375rem;
+
+  // Hide logo by default
+  display: none;
+
+  // If collapsed AND screen larger than desktop - show small logo
+  @media (min-width: breakpoint.$desktop) {
+    &.isCollapsed {
+      display: block;
+    }
+  }
+}
+
+.logoLarge {
+  composes: logo;
+
+  // If collapsed AND screen larger than desktop - hide large logo
+  @media (min-width: breakpoint.$desktop) {
+    &.isCollapsed {
+      display: none;
+    }
   }
 }
 
