@@ -16,11 +16,6 @@ const menuItems = [
   { text: "Settings", iconSrc: "/icons/settings.svg", href: Routes.settings },
 ];
 
-// function getWindowWidth() {
-//   const { innerWidth } = window;
-//   return innerWidth;
-// }
-
 export function SidebarNavigation() {
   const router = useRouter();
   const { isSidebarCollapsed, toggleSidebar } = useContext(NavigationContext);
