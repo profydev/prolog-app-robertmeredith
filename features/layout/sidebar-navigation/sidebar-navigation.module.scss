@@ -137,5 +137,15 @@
 
   @media (min-width: breakpoint.$desktop) {
     display: flex;
+
+    img {
+      transition: transform ease-in-out 300ms;
+    }
+
+    &.isCollapsed {
+      img {
+        transform: rotate(0.5turn);
+      }
+    }
   }
 }
