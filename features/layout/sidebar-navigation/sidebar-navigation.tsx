@@ -16,10 +16,16 @@ const menuItems = [
   { text: "Settings", iconSrc: "/icons/settings.svg", href: Routes.settings },
 ];
 
+// function getWindowWidth() {
+//   const { innerWidth } = window;
+//   return innerWidth;
+// }
+
 export function SidebarNavigation() {
   const router = useRouter();
   const { isSidebarCollapsed, toggleSidebar } = useContext(NavigationContext);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div
       className={classNames(
@@ -34,16 +40,26 @@ export function SidebarNavigation() {
         )}
       >
         <header className={styles.header}>
+          {/* LOGO */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={
-              isSidebarCollapsed
-                ? "/icons/logo-small.svg"
-                : "/icons/logo-large.svg"
-            }
+            src={"/icons/logo-small.svg"}
             alt="logo"
-            className={styles.logo}
+            className={classNames(
+              styles.logoSmall,
+              isSidebarCollapsed && styles.isCollapsed,
+            )}
           />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={"/icons/logo-large.svg"}
+            alt="logo"
+            className={classNames(
+              styles.logoLarge,
+              isSidebarCollapsed && styles.isCollapsed,
+            )}
+          />
+
           <Button
             onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
             className={styles.menuButton}
