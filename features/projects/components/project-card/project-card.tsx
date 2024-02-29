@@ -23,9 +23,9 @@ const statusColors = {
 };
 
 const statusLabels = {
-  [ProjectStatus.info]: "Stable",
-  [ProjectStatus.warning]: "Warning",
-  [ProjectStatus.error]: "Critical",
+  [ProjectStatus.info]: "stable",
+  [ProjectStatus.warning]: "warning",
+  [ProjectStatus.error]: "critical",
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {

@@ -1,6 +1,12 @@
 import capitalize from "lodash/capitalize";
 import mockProjects from "../fixtures/projects.json";
 
+// const statusLabels = {
+//   info: "Stable",
+//   warning: "Warning",
+//   error: "Critical",
+// };
+
 describe("Project List", () => {
   beforeEach(() => {
     // setup request mock
