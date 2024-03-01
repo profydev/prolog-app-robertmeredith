@@ -75,7 +75,7 @@ export function SidebarNavigation() {
         />
         <nav
           className={classNames(
-            styles.nav,
+            styles.mainNav,
             isMobileMenuOpen && styles.isMobileMenuOpen,
           )}
         >
