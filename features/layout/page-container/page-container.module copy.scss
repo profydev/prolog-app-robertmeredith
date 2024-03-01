@@ -21,6 +21,10 @@
   flex: 1;
 }
 
+.main {
+  flex: 1;
+}
+
 .contentContainer {
   min-height: calc(100vh - 2 * space.$s8 - misc.$header-height);
   margin-top: misc.$header-height;
@@ -28,7 +32,7 @@
   background: white;
 
   @media (min-width: breakpoint.$desktop) {
-    min-height: calc(100vh - space.$s3 - 2 * space.$s8 - misc.$footer-height);
+    min-height: calc(100vh - space.$s3 - 2 * space.$s8);
     margin-top: space.$s3;
     padding: space.$s8;
     border-top-left-radius: space.$s10;
