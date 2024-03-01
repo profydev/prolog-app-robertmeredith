@@ -41,16 +41,18 @@
   }
 }
 
+.nav {
+  @media (min-width: breakpoint.$desktop) {
+    order: 2;
+  }
+}
+
 .linkList {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   gap: space.$s6;
-
-  @media (min-width: breakpoint.$desktop) {
-    order: 2;
-  }
 }
 
 .logoWrapper {

@@ -13,11 +13,13 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <ul className={styles.linkList}>
-          {menuItems.map((menuItem, index) => (
-            <FooterItemLink key={index} {...menuItem} />
-          ))}
-        </ul>
+        <nav className={styles.nav}>
+          <ul className={styles.linkList}>
+            {menuItems.map((menuItem, index) => (
+              <FooterItemLink key={index} {...menuItem} />
+            ))}
+          </ul>
+        </nav>
         <div className={styles.logoWrapper}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={"/icons/logo-small.svg"} alt="small logo" />
