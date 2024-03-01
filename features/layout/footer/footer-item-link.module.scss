@@ -1,0 +1,13 @@
+@use "@styles/color";
+@use "@styles/font";
+@use "@styles/space";
+
+.listItem {
+  /* Text md/Medium */
+}
+
+.anchor {
+  color: color.$gray-500;
+  font: font.$text-md-medium;
+  text-decoration: none;
+}
