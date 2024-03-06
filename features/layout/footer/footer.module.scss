@@ -2,16 +2,17 @@
 @use "@styles/color";
 @use "@styles/breakpoint";
 @use "@styles/font";
+@use "@styles/misc";
 
 .footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: color.$gray-50;
-  height: 11.0625rem;
+  height: misc.$footer-height-mobile;
 
   @media (min-width: breakpoint.$desktop) {
-    height: space.$s15;
+    height: misc.$footer-height;
   }
 }
 

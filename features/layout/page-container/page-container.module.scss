@@ -21,7 +21,9 @@
 }
 
 .contentContainer {
-  min-height: calc(100vh - 2 * space.$s8 - misc.$header-height);
+  min-height: calc(
+    100vh - 2 * space.$s8 - misc.$header-height - misc.$footer-height-mobile
+  );
   margin-top: misc.$header-height;
   padding: space.$s8 space.$s3;
   background: white;
