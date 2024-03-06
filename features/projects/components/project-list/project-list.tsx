@@ -23,5 +23,6 @@ export function ProjectList() {
         </li>
       ))}
     </ul>
+    // <Loading />
   );
 }
