@@ -2,12 +2,6 @@ import capitalize from "lodash/capitalize";
 import mockProjects from "../fixtures/projects.json";
 import { ProjectStatus } from "@api/projects.types";
 
-// const statusLabels = {
-//   info: "stable",
-//   warning: "warning",
-//   error: "critical",
-// };
-
 describe("Project List", () => {
   beforeEach(() => {
     // setup request mock
@@ -17,9 +11,11 @@ describe("Project List", () => {
 
     // open projects page
     cy.visit("http://localhost:3000/dashboard");
+    cy.get("#loading").should("be.visible");
 
     // wait for request to resolve
     cy.wait("@getProjects");
+    cy.get("#loading").should("not.exist");
   });
 
   context("desktop resolution", () => {
