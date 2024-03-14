@@ -1,0 +1,56 @@
+@use "@styles/color";
+@use "@styles/font";
+@use "@styles/space";
+
+.error {
+  padding: space.$s4;
+  border: 1px solid color.$error-300;
+  border-radius: 0.5rem;
+  background: color.$error-25;
+  color: color.$error-700;
+  display: flex;
+  align-items: center;
+  gap: space.$s3;
+}
+
+.icon {
+  width: space.$s5;
+  height: space.$s5;
+  flex-shrink: 0;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: space.$s3;
+  flex: 1 0 0;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: space.$s1;
+  flex: 1 0 0;
+}
+
+.message {
+  color: color.$error-700;
+
+  /* Text sm/Medium */
+  font: font.$text-sm-medium;
+}
+
+.supporting {
+  color: color.$error-900;
+  font: font.$text-xs-medium;
+}
+
+.actions {
+  display: flex;
+  gap: space.$s2;
+  color: color.$error-700;
+
+  /* Text sm/Medium */
+  font: font.$text-sm-medium;
+}
