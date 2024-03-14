@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   gap: space.$s3;
+  min-width: min-content;
 }
 
 .icon {
@@ -48,6 +49,7 @@
 
 .actions {
   display: flex;
+  text-wrap: nowrap;
   gap: space.$s2;
   color: color.$error-700;
 
