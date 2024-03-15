@@ -11,11 +11,9 @@ describe("Project List", () => {
 
     // open projects page
     cy.visit("http://localhost:3000/dashboard");
-    cy.get("#loading").should("be.visible");
 
     // wait for request to resolve
     cy.wait("@getProjects");
-    cy.get("#loading").should("not.exist");
   });
 
   context("desktop resolution", () => {
@@ -48,6 +46,49 @@ describe("Project List", () => {
             .find("a")
             .should("have.attr", "href", "/dashboard/issues");
         });
+    });
+  });
+});
+
+describe("page that loads data", () => {
+  it("should show the loading spinner when loading the data then hide it afterwards", () => {
+    // Call API and add delay
+    cy.intercept("GET", "https://prolog-api.profy.dev/project", {
+      fixture: "projects.json",
+      delayMs: 1000,
+    }).as("getProjects");
+
+    // open projects page
+    cy.visit("http://localhost:3000/dashboard");
+    // check loading spinner is visible
+    cy.get("#loading").should("be.visible");
+
+    // wait for request to resolve
+    cy.wait("@getProjects");
+    // check loading spinner is not visible
+    cy.get("#loading").should("not.exist");
+    // check that all projects are rendered
+    cy.get("main").find("li").should("have.length", 3);
+  });
+
+  context("Errors", () => {
+    it("simulates a server error", () => {
+      // setup request mock with error
+      cy.intercept("GET", "https://prolog-api.profy.dev/project", {
+        statusCode: 404,
+      }).as("getServerFailure");
+
+      // open projects page
+      cy.visit("http://localhost:3000/dashboard");
+
+      // check error message is visible
+      cy.wait("@getServerFailure").then(() => {
+        cy.contains("Request failed with status code 404", {
+          timeout: 10000,
+        }).should("be.visible");
+        cy.contains("Try again").click();
+        cy.get("#loading").should("be.visible");
+      });
     });
   });
 });

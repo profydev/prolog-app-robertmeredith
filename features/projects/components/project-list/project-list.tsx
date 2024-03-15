@@ -13,7 +13,11 @@ export function ProjectList() {
 
   if (isError) {
     console.error(error);
-    return <Error error={error.message} handleClick={refetch} />;
+    return (
+      <>
+        <Error error={error.message} handleClick={refetch} />
+      </>
+    );
   }
 
   return (

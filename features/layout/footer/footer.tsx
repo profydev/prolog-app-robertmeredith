@@ -1,6 +1,7 @@
 import styles from "./footer.module.scss";
 import { FooterItemLink } from "./footer-item-link";
-import { version } from "../../../package.json";
+import packageJson from "../../../package.json";
+const version = packageJson.version;
 
 const menuItems = [
   { text: "Docs", href: "#" },
