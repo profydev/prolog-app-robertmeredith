@@ -1,5 +1,5 @@
 import styles from "./error.module.scss";
-import { Button } from "../button";
+import { UnstyledButton } from "../button";
 
 type ErrorProps = {
   error: string;
@@ -21,9 +21,10 @@ export const Error = ({
           <div className={styles.message}>{error}</div>
           {supporting && <div className={styles.supporting}>{supporting}</div>}
         </div>
-        <Button className={styles.actions} onClick={handleClick}>
+        <UnstyledButton className={styles.actions} onClick={handleClick}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           Try again <img src="./icons/arrow-right.svg" alt="" />
-        </Button>
+        </UnstyledButton>
       </div>
     </div>
   );
