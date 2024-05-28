@@ -1,0 +1,136 @@
+@use "@styles/color";
+@use "@styles/font";
+@use "@styles/space";
+@use "@styles/misc";
+
+.container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.status {
+  display: flex;
+  position: absolute;
+
+  .minus,
+  .checkmark {
+    display: none;
+  }
+
+  &.sm {
+    .checkmark,
+    .minus {
+      width: space.$s3;
+      height: space.$s3;
+      flex-shrink: 0;
+    }
+  }
+
+  &.md {
+    .checkmark,
+    .minus {
+      width: 0.875rem;
+      height: 0.875rem;
+      flex-shrink: 0;
+    }
+  }
+
+  &.disabled {
+    img {
+      filter: grayscale(100%);
+      opacity: 0.15;
+    }
+  }
+}
+
+.label {
+  color: color.$gray-700;
+
+  &.sm {
+    font: font.$text-sm-medium;
+  }
+
+  &.md {
+    font: font.$text-md-medium;
+  }
+
+  &.disabled {
+    color: color.$gray-300;
+  }
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .input {
+    appearance: none;
+    border: 1px solid color.$gray-300;
+    background: color.$white;
+
+    &:hover {
+      border: 1px solid color.$primary-600;
+      background: color.$primary-50;
+    }
+
+    &:focus {
+      border: 1px solid color.$primary-300;
+      background: color.$white;
+      outline: 4px solid color.$primary-100;
+    }
+
+    &:checked {
+      border: 1px solid color.$primary-600;
+      background: color.$primary-50;
+
+      + .status {
+        .checkmark {
+          display: block;
+        }
+
+        .minus {
+          display: none;
+        }
+      }
+    }
+
+    &:indeterminate {
+      border: 1px solid color.$primary-600;
+      background: color.$primary-50;
+
+      + .status {
+        .checkmark {
+          display: none;
+        }
+
+        .minus {
+          display: block;
+        }
+      }
+    }
+
+    &:disabled {
+      border: 1px solid color.$gray-200;
+      background: color.$gray-100;
+    }
+  }
+
+  &.sm {
+    .input {
+      border-radius: space.$s1;
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  &.md {
+    .input {
+      border-radius: 0.375rem;
+      width: space.$s5;
+      height: space.$s5;
+    }
+  }
+}
