@@ -16,7 +16,7 @@ type CheckboxProps = {
 export const Checkbox = ({
   sz = CheckboxSize.md,
   label,
-  disabled = false,
+  disabled,
   indeterminate,
   ...props
 }: CheckboxProps) => {
