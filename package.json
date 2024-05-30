@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.0.8",
+    "@headlessui/react": "^2.0.4",
+    "@heroicons/react": "^2.1.3",
     "@tanstack/react-query": "^4.32.6",
     "@tanstack/react-query-devtools": "^4.32.6",
     "axios": "^1.4.0",
