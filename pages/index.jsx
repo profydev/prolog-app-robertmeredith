@@ -1,7 +1,7 @@
 import { Routes } from "@config/routes";
 import styles from "./index.module.scss";
 
-const IssuesPage = () => {
+const LandingPage = () => {
   return (
     <div>
       <header className={styles.header}>
@@ -24,4 +24,4 @@ const IssuesPage = () => {
   );
 };
 
-export default IssuesPage;
+export default LandingPage;
