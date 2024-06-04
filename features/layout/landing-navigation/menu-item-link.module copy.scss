@@ -1,0 +1,15 @@
+@use "@styles/color";
+@use "@styles/space";
+@use "@styles/font";
+
+.listItem {
+  display: flex;
+  margin-top: space.$s1;
+  background: transparent;
+}
+
+.anchor {
+  color: color.$gray-500;
+  text-decoration: none;
+  font: font.$text-md-medium;
+}
