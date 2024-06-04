@@ -1,0 +1,19 @@
+@use "@styles/color";
+@use "@styles/space";
+@use "@styles/font";
+
+.listItem {
+  display: flex;
+}
+
+// .listItem.active {
+//   background: color.$gray-700;
+// }
+
+.anchor {
+  display: flex;
+  align-items: center;
+  color: color.$gray-500;
+  text-decoration: none;
+  font: font.$text-md-medium;
+}

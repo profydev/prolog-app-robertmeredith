@@ -1,0 +1,155 @@
+@use "@styles/color";
+@use "@styles/space";
+@use "@styles/breakpoint";
+@use "@styles/z-index";
+@use "@styles/misc";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  @media (min-width: breakpoint.$desktop) {
+    margin: space.$s0 space.$s20;
+  }
+}
+
+.header {
+  height: misc.$header-height;
+  background: color.$white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: space.$s0 space.$s4;
+
+  // position: relative;
+  z-index: z-index.$header;
+  gap: space.$s9;
+
+  @media (min-width: breakpoint.$desktop) {
+    // height: unset;
+    height: misc.$header-height-desktop;
+    padding: space.$s0 space.$s6;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.logo {
+  width: 7.375rem;
+}
+
+.buttonContainer {
+  display: none;
+
+  @media (min-width: breakpoint.$desktop) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 1 0 0;
+    align-self: stretch;
+  }
+}
+
+.showMenuButton {
+  display: block;
+
+  @media (min-width: breakpoint.$desktop) {
+    display: none;
+  }
+}
+
+.menuIcon {
+  display: block;
+  width: space.$s6;
+  height: space.$s6;
+}
+
+//  MAIN HEADER NAV
+.mainNav {
+  display: none;
+
+  @media (min-width: breakpoint.$desktop) {
+    display: block;
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkList {
+  composes: list;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: space.$s4;
+
+  @media (min-width: breakpoint.$desktop) {
+    flex-direction: row;
+    gap: space.$s8;
+  }
+}
+
+// Mobile Side Menu
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: color.$gray-700;
+  z-index: z-index.$header - 1;
+  transform: translateX(100%);
+  opacity: 0;
+  transition:
+    opacity 300ms,
+    transform 0s 300ms;
+
+  &.isMobileMenuOpen {
+    opacity: 0.6;
+    transform: translateX(0);
+    transition:
+      opacity 300ms,
+      transform 0s 0s;
+  }
+
+  @media (min-width: breakpoint.$desktop) {
+    display: none;
+  }
+}
+
+.mobileNav {
+  position: fixed;
+  top: misc.$header-height;
+  bottom: 0;
+  width: 17.5rem;
+  flex: 1;
+  padding: space.$s4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: color.$white;
+  z-index: z-index.$header;
+  transform: translateX(-100%);
+  transition: transform 300ms;
+  gap: space.$s12;
+
+  &.isMobileMenuOpen {
+    transform: translateX(0);
+  }
+
+  @media (min-width: breakpoint.$desktop) {
+    display: none;
+  }
+}

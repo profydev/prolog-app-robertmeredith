@@ -1,0 +1,96 @@
+@use "@styles/color";
+@use "@styles/space";
+@use "@styles/breakpoint";
+@use "@styles/z-index";
+@use "@styles/misc";
+
+.container {
+  // border: 1px solid red;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0;
+
+  @media (min-width: breakpoint.$tablet) {
+    padding: 0 5rem;
+    height: 5rem;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  align-self: stretch;
+
+  // border: 1px solid purple;
+  flex: 1 0 0;
+
+  @media (min-width: breakpoint.$tablet) {
+    gap: 2.5rem;
+    padding: 0 2rem;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  padding: 1.5rem 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.625rem;
+  flex: 1 0 0;
+  align-self: stretch;
+  margin-right: auto;
+
+  // border: 1px solid green;
+}
+
+.hamburger {
+  // border: 1px solid red;
+  display: flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  @media (min-width: breakpoint.$tablet) {
+    display: none;
+  }
+}
+
+.landingNav {
+  display: none;
+
+  @media (min-width: breakpoint.$tablet) {
+    display: block;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 2rem;
+  }
+}
+
+.buttonContainer {
+  display: none;
+
+  @media (min-width: breakpoint.$tablet) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 1 0 0;
+    padding: 1.375rem 0;
+    gap: 0.625rem;
+    align-self: stretch;
+  }
+}

@@ -31,6 +31,7 @@ export const Button = ({
   iconOnly = false,
   empty = false,
   children,
+  className,
   ...props
 }: ButtonProps) => {
   return (
@@ -42,6 +43,7 @@ export const Button = ({
         styles[color],
         iconOnly && styles.iconOnly,
         empty && styles.empty,
+        className,
       )}
     >
       {children}

@@ -1,14 +1,10 @@
-import { Routes } from "@config/routes";
 import styles from "./index.module.scss";
+import { LandingNavigation } from "@features/layout";
 
-const IssuesPage = () => {
+const LandingPage = () => {
   return (
     <div>
-      <header className={styles.header}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/icons/logo-large.svg" alt="Prolog logo" />
-        <a href={Routes.projects}>Dashboard</a>
-      </header>
+      <LandingNavigation />
       <button
         className={styles.contactButton}
         onClick={() =>
@@ -24,4 +20,4 @@ const IssuesPage = () => {
   );
 };
 
-export default IssuesPage;
+export default LandingPage;
