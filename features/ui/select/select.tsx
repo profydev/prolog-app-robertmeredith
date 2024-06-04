@@ -39,6 +39,7 @@ export const Select = ({
   icon,
   options,
   onChange,
+  className,
 }: SelectProps) => {
   const [selected, setSelected] = useState<OptionType>();
 
@@ -64,7 +65,7 @@ export const Select = ({
   };
 
   return (
-    <Field className={styles.field}>
+    <Field className={classNames(styles.field, className)}>
       {/* Label */}
       {label && <Label className={styles.label}>{label}</Label>}
       {/* Listbox  */}
@@ -93,16 +94,19 @@ export const Select = ({
             </ListboxButton>
             {/* Dropdown Options */}
             <ListboxOptions anchor="bottom" className={styles.options}>
-              {options.map((option) => (
-                <ListboxOption
-                  key={option.id}
-                  value={option}
-                  className={classNames(styles.option)}
-                >
-                  <div>{option.label}</div>
-                  {selected === option && <CheckIcon className={styles.icon} />}
-                </ListboxOption>
-              ))}
+              {options &&
+                options.map((option) => (
+                  <ListboxOption
+                    key={option.id}
+                    value={option}
+                    className={classNames(styles.option)}
+                  >
+                    <div>{option.label}</div>
+                    {selected === option && (
+                      <CheckIcon className={styles.icon} />
+                    )}
+                  </ListboxOption>
+                ))}
             </ListboxOptions>
           </>
         )}

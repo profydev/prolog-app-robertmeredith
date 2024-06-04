@@ -1,5 +1,5 @@
 import { PageContainer } from "@features/layout";
-import { IssueList } from "@features/issues";
+import { IssueList, IssueFilter } from "@features/issues";
 import type { NextPage } from "next";
 
 const IssuesPage: NextPage = () => {
@@ -8,6 +8,7 @@ const IssuesPage: NextPage = () => {
       title="Issues"
       info="Overview of errors, warnings, and events logged from your projects."
     >
+      <IssueFilter />
       <IssueList />
     </PageContainer>
   );

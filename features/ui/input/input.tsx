@@ -29,6 +29,7 @@ export const Input = ({
   icon,
   error = false,
   onChange,
+  className,
   ...props
 }: InputProps) => {
   // Function to render the icon based on the type of `icon` prop
@@ -55,7 +56,11 @@ export const Input = ({
 
   return (
     <Field
-      className={classNames(styles.container, fullWidth && styles.fullWidth)}
+      className={classNames(
+        styles.container,
+        className,
+        fullWidth && styles.fullWidth,
+      )}
     >
       {label && <Label className={styles.label}>{label}</Label>}
       <div className={styles.inputContainer}>
