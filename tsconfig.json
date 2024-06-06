@@ -21,7 +21,7 @@
       "@features/*": ["features/*"],
       "@styles/*": ["styles/*"],
       "@typings/*": ["typings/*"],
-      "@headlessui/react": ["node_modules/@headlessui/react/dist/index.d.ts"]
+      //  "@headlessui/react": ["node_modules/@headlessui/react/dist/index.d.ts"] 
     },
     "noEmit": true
   },

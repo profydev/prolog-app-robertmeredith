@@ -1,20 +1,40 @@
 import { Button, ButtonSize, Select, Input } from "@features/ui";
 import { CheckIcon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import styles from "./issue-filter.module.scss";
+import { useFilters } from "../../api/use-filters";
 
-const filterOneOptions = [
-  { id: 1, label: "All", value: "all" },
-  { id: 1, label: "Resolved", value: "resolved" },
-  { id: 3, label: "Unresolved", value: "unresolved" },
+const statusFilterOptions = [
+  { label: "All", value: "" },
+  { label: "Resolved", value: "resolved" },
+  { label: "Unresolved", value: "open" },
 ];
-const filterTwoOptions = [
-  { id: 1, label: "All", value: "all" },
-  { id: 1, label: "Error", value: "error" },
-  { id: 3, label: "Warning", value: "warning" },
-  { id: 4, label: "Info", value: "info" },
+const levelFilterOptions = [
+  { label: "All", value: "" },
+  { label: "Error", value: "error" },
+  { label: "Warning", value: "warning" },
+  { label: "Info", value: "info" },
 ];
+
+type OptionType = {
+  label: string;
+  value: string;
+};
 
 export const IssueFilter = () => {
+  const { filters, updateFilters } = useFilters();
+
+  const handleStatusChange = (selected: OptionType) => {
+    updateFilters({ status: selected.value });
+  };
+
+  const handleLabelChange = (selected: OptionType) => {
+    updateFilters({ level: selected.value });
+  };
+
+  const handleSearch = (value: string) => {
+    updateFilters({ project: value });
+  };
+
   return (
     <div className={styles.filterBar}>
       <Button size={ButtonSize.lg}>
@@ -23,16 +43,26 @@ export const IssueFilter = () => {
       </Button>
       <div className={styles.right}>
         <Select
-          options={filterOneOptions}
-          placeholder={"Status"}
+          options={statusFilterOptions}
+          placeholder={filters.status || "Status"}
           className={styles.filter}
+          handleChange={handleStatusChange}
         />
         <Select
-          options={filterTwoOptions}
-          placeholder={"Label"}
+          options={levelFilterOptions}
+          placeholder={filters.level || "Label"}
           className={styles.filter}
+          handleChange={handleLabelChange}
         />
-        <Input className={styles.input} icon={MagnifyingGlassIcon} />
+        <Input
+          className={styles.input}
+          icon={MagnifyingGlassIcon}
+          value={filters.project || ""}
+          // placeholder={filters.project || "Search"}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleSearch(e.target.value)
+          }
+        />
       </div>
     </div>
   );

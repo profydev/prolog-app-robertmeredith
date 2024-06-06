@@ -15,9 +15,8 @@ import styles from "./select.module.scss";
 import { createElement } from "react";
 
 type OptionType = {
-  id: number;
   label: string;
-  value: string | number;
+  value: string;
 };
 
 type SelectProps = {
@@ -27,8 +26,9 @@ type SelectProps = {
   options: OptionType[];
   icon?: React.ElementType | string;
   placeholder?: string;
-  onChange?: (selected: OptionType | null) => void;
+  handleChange?: (selected: OptionType) => void;
 } & React.HTMLProps<HTMLSelectElement>;
+// } & React.HTMLProps<HTMLSelectElement>;
 
 export const Select = ({
   label,
@@ -38,16 +38,19 @@ export const Select = ({
   placeholder = "Select",
   icon,
   options,
-  onChange,
+  handleChange,
   className,
 }: SelectProps) => {
-  const [selected, setSelected] = useState<OptionType>();
+  const [selected, setSelected] = useState<OptionType>({
+    label: "",
+    value: "",
+  });
 
   // Function to handle selection change
-  const handleChange = (value: OptionType) => {
+  const handleSelectionChange = (value: OptionType) => {
     setSelected(value);
-    if (onChange) {
-      onChange(value);
+    if (handleChange) {
+      handleChange(value);
     }
   };
 
@@ -69,7 +72,7 @@ export const Select = ({
       {/* Label */}
       {label && <Label className={styles.label}>{label}</Label>}
       {/* Listbox  */}
-      <Listbox value={selected} onChange={handleChange}>
+      <Listbox value={selected} onChange={handleSelectionChange}>
         {/* Listbox Button */}
         {({ open }) => (
           <>
@@ -82,9 +85,10 @@ export const Select = ({
               disabled={disabled}
             >
               {renderIcon()}
-              {selected ? (
+              {selected.value ? (
                 <span>{selected.label}</span>
               ) : (
+                // <span>{selected.label}</span>
                 <span className={styles.placeholder}>{placeholder}</span>
               )}
               <ChevronDownIcon
@@ -95,14 +99,14 @@ export const Select = ({
             {/* Dropdown Options */}
             <ListboxOptions anchor="bottom" className={styles.options}>
               {options &&
-                options.map((option) => (
+                options.map((option, index) => (
                   <ListboxOption
-                    key={option.id}
+                    key={index}
                     value={option}
                     className={classNames(styles.option)}
                   >
                     <div>{option.label}</div>
-                    {selected === option && (
+                    {selected.value === option.value && (
                       <CheckIcon className={styles.icon} />
                     )}
                   </ListboxOption>

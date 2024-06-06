@@ -19,6 +19,7 @@ type InputProps = {
   error?: string | boolean;
   placeholder?: string;
   icon?: React.ElementType | string;
+  value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 } & HeadlessInputProps; // Use derived types
 
