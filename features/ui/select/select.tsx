@@ -10,7 +10,7 @@ import {
   Description,
 } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "./select.module.scss";
 import { createElement } from "react";
 
@@ -67,6 +67,20 @@ export const Select = ({
     }
   };
 
+  const buttonRef =
+    useRef<HTMLButtonElement>() as React.RefObject<HTMLButtonElement>;
+
+  // sets the button width as a CSS variable
+  useEffect(() => {
+    if (buttonRef.current) {
+      const buttonWidth = buttonRef.current.offsetWidth;
+      document.documentElement.style.setProperty(
+        "--button-width",
+        `${buttonWidth}px`,
+      );
+    }
+  }, [selected]);
+
   return (
     <Field className={classNames(styles.field, className)}>
       {/* Label */}
@@ -77,6 +91,7 @@ export const Select = ({
         {({ open }) => (
           <>
             <ListboxButton
+              ref={buttonRef}
               className={classNames(
                 styles.button,
                 open && styles.buttonOpen,
