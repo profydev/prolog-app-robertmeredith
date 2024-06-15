@@ -5,6 +5,7 @@ import { useGetIssues } from "../../api/use-get-issues";
 import { IssueRow } from "./issue-row";
 import styles from "./issue-list.module.scss";
 import { useFilters } from "../../api/use-filters";
+import { Loading, Error } from "@features/ui";
 
 export function IssueList() {
   const router = useRouter();
@@ -22,17 +23,30 @@ export function IssueList() {
   const projects = useGetProjects();
 
   if (projects.isLoading || issuesPage.isLoading) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
 
   if (projects.isError) {
     console.error(projects.error);
-    return <div>Error loading projects: {projects.error.message}</div>;
+    // return <div>Error loading projects: {projects.error.message}</div>;
+    return (
+      <>
+        <Error error={projects.error.message} handleClick={projects.refetch} />
+      </>
+    );
   }
 
   if (issuesPage.isError) {
     console.error(issuesPage.error);
-    return <div>Error loading issues: {issuesPage.error.message}</div>;
+    // return <div>Error loading issues: {issuesPage.error.message}</div>;
+    return (
+      <>
+        <Error
+          error={issuesPage.error.message}
+          handleClick={issuesPage.refetch}
+        />
+      </>
+    );
   }
 
   const projectIdToLanguage = (projects.data || []).reduce(

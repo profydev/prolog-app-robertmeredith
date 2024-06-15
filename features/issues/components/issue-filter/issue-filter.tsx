@@ -23,6 +23,8 @@ type OptionType = {
 export const IssueFilter = () => {
   const { filters, updateFilters } = useFilters();
 
+  console.log("filters", filters);
+
   const handleStatusChange = (selected: OptionType) => {
     updateFilters({ status: selected.value });
   };
