@@ -24,7 +24,10 @@ export const useFilters = () => {
   //   ...(router.query.project && { project: router.query.project }),
   // } as FilterType;
 
-  const updateFilterQuery = (newFilter: { key: string; value: string }) => {
+  const updateFilterQuery = (newFilter: {
+    key: string;
+    value: string | undefined;
+  }) => {
     const { query } = router;
     const { key, value } = newFilter;
 

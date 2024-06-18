@@ -3,6 +3,11 @@ import { CheckIcon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import styles from "./issue-filter.module.scss";
 import { useFilters } from "../../api/use-filters";
 
+// type OptionType = {
+//   label: string;
+//   value: string;
+// };
+
 const statusFilterOptions = [
   { label: "All", value: "" },
   { label: "Resolved", value: "resolved" },
@@ -15,34 +20,25 @@ const levelFilterOptions = [
   { label: "Info", value: "info" },
 ];
 
-// type OptionType = {
-//   label: string;
-//   value: string;
-// };
-
 export const IssueFilter = () => {
   const { filters, updateFilterQuery } = useFilters();
 
-  console.log("filters", filters);
-
-  // const handleStatusChange = (selected: OptionType) => {
-  //   updateFilters({ status: selected.value });
-  // };
-
-  // const handleLabelChange = (selected: OptionType) => {
-  //   updateFilters({ level: selected.value });
-  // };
-
-  // const handleSearch = (value: string) => {
-  //   updateFilters({ project: value });
-  // };
-
-  const updateFilter = (key: string, value: string) => {
+  const updateFilter = (key: string, value: string | undefined) => {
     updateFilterQuery({
       key,
       value,
     });
   };
+
+  const levelValue = levelFilterOptions.find(
+    (op) => op.value === filters.level,
+  );
+  const statusValue = statusFilterOptions.find(
+    (op) => op.value === filters.status,
+  );
+
+  console.log("levelValue", levelValue);
+  console.log("statusValue", statusValue);
 
   return (
     <div className={styles.filterBar}>
@@ -57,9 +53,7 @@ export const IssueFilter = () => {
           placeholder={"Status"}
           className={styles.filter}
           handleChange={(s) => updateFilter("status", s.value)}
-          currentValue={statusFilterOptions.find(
-            (op) => op.value === filters.status,
-          )}
+          // defaultValue={levelValue}
         />
         <Select
           options={levelFilterOptions}

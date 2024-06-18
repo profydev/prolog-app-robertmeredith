@@ -15,12 +15,11 @@ import styles from "./select.module.scss";
 import { createElement } from "react";
 
 type OptionType = {
-  label: string;
-  value: string;
+  label: string | undefined;
+  value: string | undefined;
 };
 
 type SelectProps = {
-  currentValue?: OptionType | undefined;
   label?: string;
   hint?: string;
   error?: string;
@@ -31,7 +30,6 @@ type SelectProps = {
 } & React.HTMLProps<HTMLSelectElement>;
 
 export const Select = ({
-  // currentValue,
   label,
   hint,
   error,
