@@ -20,6 +20,7 @@ type OptionType = {
 };
 
 type SelectProps = {
+  currentValue?: OptionType | undefined;
   label?: string;
   hint?: string;
   error?: string;
@@ -28,9 +29,9 @@ type SelectProps = {
   placeholder?: string;
   handleChange?: (selected: OptionType) => void;
 } & React.HTMLProps<HTMLSelectElement>;
-// } & React.HTMLProps<HTMLSelectElement>;
 
 export const Select = ({
+  // currentValue,
   label,
   hint,
   error,
@@ -45,6 +46,9 @@ export const Select = ({
     label: "",
     value: "",
   });
+
+  console.log("selected", selected);
+  // console.log("currentValue", currentValue);
 
   // Function to handle selection change
   const handleSelectionChange = (value: OptionType) => {

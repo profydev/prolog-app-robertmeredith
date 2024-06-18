@@ -15,26 +15,33 @@ const levelFilterOptions = [
   { label: "Info", value: "info" },
 ];
 
-type OptionType = {
-  label: string;
-  value: string;
-};
+// type OptionType = {
+//   label: string;
+//   value: string;
+// };
 
 export const IssueFilter = () => {
-  const { filters, updateFilters } = useFilters();
+  const { filters, updateFilterQuery } = useFilters();
 
   console.log("filters", filters);
 
-  const handleStatusChange = (selected: OptionType) => {
-    updateFilters({ status: selected.value });
-  };
+  // const handleStatusChange = (selected: OptionType) => {
+  //   updateFilters({ status: selected.value });
+  // };
 
-  const handleLabelChange = (selected: OptionType) => {
-    updateFilters({ level: selected.value });
-  };
+  // const handleLabelChange = (selected: OptionType) => {
+  //   updateFilters({ level: selected.value });
+  // };
 
-  const handleSearch = (value: string) => {
-    updateFilters({ project: value });
+  // const handleSearch = (value: string) => {
+  //   updateFilters({ project: value });
+  // };
+
+  const updateFilter = (key: string, value: string) => {
+    updateFilterQuery({
+      key,
+      value,
+    });
   };
 
   return (
@@ -46,15 +53,21 @@ export const IssueFilter = () => {
       <div className={styles.right}>
         <Select
           options={statusFilterOptions}
-          placeholder={filters.status || "Status"}
+          // placeholder={filters.status || "Status"}
+          placeholder={"Status"}
           className={styles.filter}
-          handleChange={handleStatusChange}
+          handleChange={(s) => updateFilter("status", s.value)}
+          currentValue={statusFilterOptions.find(
+            (op) => op.value === filters.status,
+          )}
         />
         <Select
           options={levelFilterOptions}
-          placeholder={filters.level || "Label"}
+          // placeholder={filters.level || "Label"}
+          placeholder={"Label"}
           className={styles.filter}
-          handleChange={handleLabelChange}
+          // handleChange={handleLabelChange}
+          handleChange={(s) => updateFilter("level", s.value)}
         />
         <Input
           className={styles.input}
@@ -62,7 +75,7 @@ export const IssueFilter = () => {
           value={filters.project || ""}
           // placeholder={filters.project || "Search"}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handleSearch(e.target.value)
+            updateFilter("project", e.target.value)
           }
         />
       </div>

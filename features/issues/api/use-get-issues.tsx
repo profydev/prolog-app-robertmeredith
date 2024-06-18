@@ -4,6 +4,8 @@ import { getIssues } from "@api/issues";
 import type { Page } from "@typings/page.types";
 import type { Issue } from "@api/issues.types";
 
+import { useFilters } from "./use-filters";
+
 type FilterType = {
   status?: string;
   level?: string;
@@ -12,14 +14,11 @@ type FilterType = {
 
 const QUERY_KEY = "issues";
 
-// export function getQueryKey(page?: number) {
-//   if (page === undefined) {
-//     return [QUERY_KEY];
-//   }
-//   return [QUERY_KEY, page];
-// }
-
 export function getQueryKey(page?: number, filters?: FilterType) {
+  // if (page === undefined) {
+  //   return [QUERY_KEY];
+  // }
+  // return [QUERY_KEY, page];
   const queryKey: (string | number)[] = [QUERY_KEY];
 
   if (page !== undefined) {
@@ -39,14 +38,9 @@ export function getQueryKey(page?: number, filters?: FilterType) {
   return queryKey;
 }
 
-// export function useGetIssues(page: number) {
-//   const query = useQuery<Page<Issue>, Error>(
-//     getQueryKey(page),
-//     ({ signal }) => getIssues(page, { signal }),
-//     { keepPreviousData: true },
-//   );
+export function useGetIssues(page: number) {
+  const { filters } = useFilters();
 
-export function useGetIssues(page: number, filters: FilterType) {
   const query = useQuery<Page<Issue>, Error>(
     getQueryKey(page, filters),
     ({ signal }) => getIssues(page, filters, { signal }),
@@ -61,6 +55,7 @@ export function useGetIssues(page: number, filters: FilterType) {
         getIssues(page + 1, filters, { signal }),
       );
     }
-  }, [query.data, page, filters, queryClient]);
+  }, [query.data, page, queryClient]);
+
   return query;
 }

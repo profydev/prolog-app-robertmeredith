@@ -4,22 +4,21 @@ import { useGetProjects } from "@features/projects";
 import { useGetIssues } from "../../api/use-get-issues";
 import { IssueRow } from "./issue-row";
 import styles from "./issue-list.module.scss";
-import { useFilters } from "../../api/use-filters";
+// import { useFilters } from "../../api/use-filters";
 import { Loading, Error } from "@features/ui";
 
 export function IssueList() {
   const router = useRouter();
   const page = Number(router.query.page || 1);
-  const { filters } = useFilters();
 
   const navigateToPage = (newPage: number) =>
     router.push({
       pathname: router.pathname,
-      query: { page: newPage, ...filters },
+      query: { ...router.query, page: newPage },
     });
 
-  const issuesPage = useGetIssues(page, filters);
-
+  // Fetch Data
+  const issuesPage = useGetIssues(page);
   const projects = useGetProjects();
 
   if (projects.isLoading || issuesPage.isLoading) {
@@ -56,10 +55,12 @@ export function IssueList() {
     }),
     {} as Record<string, ProjectLanguage>,
   );
+
   const { items, meta } = issuesPage.data || {};
 
-  if (items.length < 11 && page > 1) {
-    navigateToPage(1);
+  // Redirect to last page if current page is greater than total pages
+  if (meta?.currentPage > meta?.totalPages) {
+    navigateToPage(meta.totalPages > 0 ? meta.totalPages : 1);
   }
 
   return (
