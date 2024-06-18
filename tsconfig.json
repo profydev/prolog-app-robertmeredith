@@ -20,7 +20,7 @@
       "@config/*": ["config/*"],
       "@features/*": ["features/*"],
       "@styles/*": ["styles/*"],
-      "@typings/*": ["typings/*"],
+      "@typings/*": ["typings/*"]
     },
     "noEmit": true
   },
