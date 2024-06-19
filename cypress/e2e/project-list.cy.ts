@@ -44,8 +44,26 @@ describe("Project List", () => {
           cy.wrap($el).contains(capitalize(status));
           cy.wrap($el)
             .find("a")
-            .should("have.attr", "href", "/dashboard/issues");
+            .should(
+              "have.attr",
+              "href",
+              // checks project name is encoded in the URL
+              "/dashboard/issues?project=" +
+                encodeURIComponent(mockProjects[index].name),
+            );
         });
+    });
+
+    it('shows the correct issues when redirecting to the "issues" page', () => {
+      // click on first project card
+      cy.get("main").find("li").first().find("a").click();
+      // check that the URL has changed
+      cy.url().should(
+        "include",
+        "/dashboard/issues?project=" + encodeURIComponent(mockProjects[0].name),
+      );
+      // check that the input field contains the project name
+      cy.get("input").should("have.value", mockProjects[0].name);
     });
   });
 });
