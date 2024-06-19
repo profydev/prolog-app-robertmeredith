@@ -20,8 +20,7 @@
       "@config/*": ["config/*"],
       "@features/*": ["features/*"],
       "@styles/*": ["styles/*"],
-      "@typings/*": ["typings/*"],
-      "@headlessui/react": ["node_modules/@headlessui/react/dist/index.d.ts"]
+      "@typings/*": ["typings/*"]
     },
     "noEmit": true
   },

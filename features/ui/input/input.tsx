@@ -15,20 +15,20 @@ type HeadlessInputProps = React.ComponentProps<typeof HeadlessInput>;
 type InputProps = {
   hint?: string;
   label?: string;
-  fullWidth?: boolean;
   error?: string | boolean;
   placeholder?: string;
   icon?: React.ElementType | string;
+  value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 } & HeadlessInputProps; // Use derived types
 
 export const Input = ({
   hint,
   label,
-  fullWidth = false,
   icon,
   error = false,
   onChange,
+  className,
   ...props
 }: InputProps) => {
   // Function to render the icon based on the type of `icon` prop
@@ -54,9 +54,7 @@ export const Input = ({
   };
 
   return (
-    <Field
-      className={classNames(styles.container, fullWidth && styles.fullWidth)}
-    >
+    <Field className={classNames(styles.container, className)}>
       {label && <Label className={styles.label}>{label}</Label>}
       <div className={styles.inputContainer}>
         {/* Left Icon Render */}
