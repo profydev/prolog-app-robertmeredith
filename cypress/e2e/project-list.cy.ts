@@ -47,6 +47,24 @@ describe("Project List", () => {
             .should("have.attr", "href", "/dashboard/issues");
         });
     });
+
+    it('redirects to the "issues" page when clicking on a project card', () => {
+      // click on first project card
+      cy.get("main").find("li").first().find("a").click();
+      // check that the URL has changed
+      cy.url().should("include", "/dashboard/issues");
+    });
+
+    it('shows the correct issues when redirecting to the "issues" page', () => {
+      // click on first project card
+      // cy.get("main").find("li").first().find("a").click();
+      cy.get("main").find("View issues").first().click();
+      // check that the URL has changed
+      cy.url().should("include", "/dashboard/issues");
+      // check that the correct issues are rendered
+      cy.contains("Page 1 of 8");
+      // cy.get("main").find("li").should("have.length", 3);
+    });
   });
 });
 
