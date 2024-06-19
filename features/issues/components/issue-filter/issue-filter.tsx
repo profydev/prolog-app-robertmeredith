@@ -58,7 +58,7 @@ export const IssueFilter = () => {
         <Select
           options={levelFilterOptions}
           // placeholder={filters.level || "Label"}
-          placeholder={"Label"}
+          placeholder={"Level"}
           className={styles.filter}
           // handleChange={handleLabelChange}
           handleChange={(s) => updateFilter("level", s.value)}
