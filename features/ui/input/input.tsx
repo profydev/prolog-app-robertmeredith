@@ -15,7 +15,6 @@ type HeadlessInputProps = React.ComponentProps<typeof HeadlessInput>;
 type InputProps = {
   hint?: string;
   label?: string;
-  fullWidth?: boolean;
   error?: string | boolean;
   placeholder?: string;
   icon?: React.ElementType | string;
@@ -26,7 +25,6 @@ type InputProps = {
 export const Input = ({
   hint,
   label,
-  fullWidth = false,
   icon,
   error = false,
   onChange,
@@ -56,13 +54,7 @@ export const Input = ({
   };
 
   return (
-    <Field
-      className={classNames(
-        styles.container,
-        className,
-        fullWidth && styles.fullWidth,
-      )}
-    >
+    <Field className={classNames(styles.container, className)}>
       {label && <Label className={styles.label}>{label}</Label>}
       <div className={styles.inputContainer}>
         {/* Left Icon Render */}

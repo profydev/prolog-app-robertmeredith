@@ -38,14 +38,6 @@ export const Placeholder: Story = {
     placeholder: "olivia@untitledui.com",
   },
 };
-export const FullWidth: Story = {
-  args: {
-    label: "Team member",
-    hint: "This is a hint text to help user.",
-    placeholder: "olivia@untitledui.com",
-    fullWidth: true,
-  },
-};
 
 export const ErrorWithMessage: Story = {
   args: {
