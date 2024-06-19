@@ -1,7 +1,6 @@
 @use "@styles/breakpoint";
 
 .filterBar {
-  // border: 1px solid teal;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -20,15 +19,19 @@
 .right {
   margin-left: auto;
   display: flex;
+  flex: 1 0 0;
   align-items: center;
+  justify-content: flex-end;
   gap: 1rem;
 }
 
 .filter {
-  width: 10rem;
+  display: flex;
+  max-width: 10rem;
 }
 
 .input {
-  width: 17.5rem;
-  margin-bottom: -0.3rem;
+  display: flex;
+  margin-bottom: -0.4rem;
+  max-width: 17.5rem;
 }
