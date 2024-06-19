@@ -25,6 +25,7 @@
 .fixedContainer {
   composes: container;
   position: fixed;
+  z-index: z-index.$header - 2;
 }
 
 .header {
