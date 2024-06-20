@@ -4,9 +4,7 @@ import { useGetProjects } from "@features/projects";
 import { useGetIssues } from "../../api/use-get-issues";
 import { IssueRow } from "./issue-row";
 import styles from "./issue-list.module.scss";
-// import { useFilters } from "../../api/use-filters";
 import { Loading, Error } from "@features/ui";
-import { IssueFilter } from "../issue-filter";
 
 export function IssueList() {
   const router = useRouter();
@@ -66,7 +64,6 @@ export function IssueList() {
 
   return (
     <div>
-      <IssueFilter />
       <div className={styles.container}>
         <table className={styles.table}>
           <thead>
@@ -77,7 +74,7 @@ export function IssueList() {
               <th className={styles.headerCell}>Users</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className={styles.tableBody}>
             {(items || []).map((issue) => (
               <IssueRow
                 key={issue.id}
@@ -88,7 +85,7 @@ export function IssueList() {
           </tbody>
         </table>
         <div className={styles.paginationContainer}>
-          <div>
+          <div className={styles.paginationButtonContainer}>
             <button
               className={styles.paginationButton}
               onClick={() => navigateToPage(page - 1)}

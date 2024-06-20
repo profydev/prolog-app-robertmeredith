@@ -44,7 +44,7 @@ export const IssueFilter = () => {
     <div className={styles.filterBar}>
       <Button size={ButtonSize.lg}>
         <CheckIcon className={styles.icon} />
-        Resolve Selected Issue
+        Resolve Selected Issues
       </Button>
       <div className={styles.right}>
         <Select

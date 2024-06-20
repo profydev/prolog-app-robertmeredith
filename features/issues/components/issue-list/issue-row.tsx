@@ -4,6 +4,7 @@ import { ProjectLanguage } from "@api/projects.types";
 import { IssueLevel } from "@api/issues.types";
 import type { Issue } from "@api/issues.types";
 import styles from "./issue-row.module.scss";
+import classNames from "classnames";
 
 type IssueRowProps = {
   projectLanguage: ProjectLanguage;
@@ -37,13 +38,37 @@ export function IssueRow({ projectLanguage, issue }: IssueRowProps) {
           <div>{firstLineOfStackTrace}</div>
         </div>
       </td>
-      <td className={styles.cell}>
+
+      {/* Tablet and up Stats - only shown on on sizes above Mobile */}
+      <td className={classNames(styles.cell, styles.hideOnMobile)}>
         <Badge color={levelColors[level]} size={BadgeSize.sm}>
           {capitalize(level)}
         </Badge>
       </td>
-      <td className={styles.cell}>{numEvents}</td>
-      <td className={styles.cell}>{numUsers}</td>
+      <td className={classNames(styles.cell, styles.hideOnMobile)}>
+        {numEvents}
+      </td>
+      <td className={classNames(styles.cell, styles.hideOnMobile)}>
+        {numUsers}
+      </td>
+
+      {/* Mobile Stats - only shown on mobile */}
+      <div className={styles.mobileStatsContainer}>
+        <div className={styles.mobileCell}>
+          <div>Level</div>
+          <Badge color={levelColors[level]} size={BadgeSize.sm}>
+            {capitalize(level)}
+          </Badge>
+        </div>
+        <div className={styles.mobileCell}>
+          <div>Events</div>
+          <span>{numEvents}</span>
+        </div>
+        <div className={styles.mobileCell}>
+          <div>Users</div>
+          <span>{numUsers}</span>
+        </div>
+      </div>
     </tr>
   );
 }
