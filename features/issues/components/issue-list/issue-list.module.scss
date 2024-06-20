@@ -1,16 +1,20 @@
 @use "@styles/color";
 @use "@styles/space";
 @use "@styles/font";
+@use "@styles/breakpoint";
 
 .container {
   background: white;
-  border: 1px solid color.$gray-200;
   box-sizing: border-box;
-  box-shadow:
-    0 4px 8px -2px rgb(16 24 40 / 10%),
-    0 2px 4px -2px rgb(16 24 40 / 6%);
-  border-radius: space.$s2;
   overflow: hidden;
+
+  @media (min-width: breakpoint.$mobile) {
+    box-shadow:
+      0 4px 8px -2px rgb(16 24 40 / 10%),
+      0 2px 4px -2px rgb(16 24 40 / 6%);
+    border-radius: space.$s2;
+    border: 1px solid color.$gray-200;
+  }
 }
 
 .table {
@@ -20,6 +24,11 @@
 
 .headerRow {
   border-bottom: 1px solid color.$gray-200;
+  display: none;
+
+  @media (min-width: breakpoint.$mobile) {
+    display: table-row;
+  }
 }
 
 .headerCell {
@@ -35,6 +44,16 @@
   justify-content: space-between;
   padding: space.$s4 space.$s6;
   border-top: 1px solid color.$gray-200;
+}
+
+.tableBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: breakpoint.$mobile) {
+    display: table-row-group;
+  }
 }
 
 .paginationButton {

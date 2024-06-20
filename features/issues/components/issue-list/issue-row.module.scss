@@ -1,9 +1,26 @@
 @use "@styles/color";
 @use "@styles/space";
 @use "@styles/font";
+@use "@styles/breakpoint";
+
+.row {
+  border-radius: 0.5rem;
+  border: 1px solid color.$gray-200;
+  box-shadow:
+    0 1px 3px 0 rgb(16 24 40 / 10%),
+    0 1px 2px 0 rgb(16 24 40 / 6%);
+
+  @media (min-width: breakpoint.$mobile) {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
 
 .row:nth-child(2n) {
-  background: color.$gray-50;
+  @media (min-width: breakpoint.$mobile) {
+    background: color.$gray-50;
+  }
 }
 
 .cell {
