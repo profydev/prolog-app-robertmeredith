@@ -4,7 +4,6 @@ import { useGetProjects } from "@features/projects";
 import { useGetIssues } from "../../api/use-get-issues";
 import { IssueRow } from "./issue-row";
 import styles from "./issue-list.module.scss";
-// import { useFilters } from "../../api/use-filters";
 import { Loading, Error } from "@features/ui";
 
 export function IssueList() {
@@ -86,7 +85,7 @@ export function IssueList() {
           </tbody>
         </table>
         <div className={styles.paginationContainer}>
-          <div>
+          <div className={styles.paginationButtonContainer}>
             <button
               className={styles.paginationButton}
               onClick={() => navigateToPage(page - 1)}
