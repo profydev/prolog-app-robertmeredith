@@ -9,7 +9,6 @@
   box-shadow:
     0 1px 3px 0 rgb(16 24 40 / 10%),
     0 1px 2px 0 rgb(16 24 40 / 6%);
-  padding: 0.75rem 1.25rem;
 
   @media (min-width: breakpoint.$mobile) {
     border: none;
@@ -19,6 +18,9 @@
 }
 
 .row:nth-child(2n) {
+  @media (min-width: breakpoint.$mobile) {
+    background: color.$gray-50;
+  }
   @media (min-width: breakpoint.$mobile) {
     background: color.$gray-50;
   }

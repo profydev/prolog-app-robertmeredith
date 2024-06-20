@@ -64,6 +64,16 @@
   }
 }
 
+.tableBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: breakpoint.$mobile) {
+    display: table-row-group;
+  }
+}
+
 .paginationButton {
   height: 38px;
   padding: space.$s0 space.$s4;
