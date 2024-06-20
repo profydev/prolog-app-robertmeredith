@@ -2,9 +2,14 @@
 
 .filterBar {
   display: flex;
-  align-items: center;
+  flex-direction: column-reverse;
   gap: 1rem;
   margin-bottom: 1.5rem;
+
+  @media (min-width: breakpoint.$mobile) {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .button {
@@ -17,21 +22,32 @@
 }
 
 .right {
-  margin-left: auto;
   display: flex;
+  flex-direction: column;
   flex: 1 0 0;
-  align-items: center;
-  justify-content: flex-end;
   gap: 1rem;
+
+  @media (min-width: breakpoint.$mobile) {
+    flex-direction: row;
+    margin-left: auto;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }
 
 .filter {
   display: flex;
-  max-width: 10rem;
+
+  @media (min-width: breakpoint.$mobile) {
+    max-width: 10rem;
+  }
 }
 
 .input {
   display: flex;
   margin-bottom: -0.4rem;
-  max-width: 17.5rem;
+
+  @media (min-width: breakpoint.$mobile) {
+    max-width: 17.5rem;
+  }
 }

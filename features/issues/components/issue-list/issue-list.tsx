@@ -6,7 +6,6 @@ import { IssueRow } from "./issue-row";
 import styles from "./issue-list.module.scss";
 // import { useFilters } from "../../api/use-filters";
 import { Loading, Error } from "@features/ui";
-import { IssueFilter } from "../issue-filter";
 
 export function IssueList() {
   const router = useRouter();
@@ -66,7 +65,6 @@ export function IssueList() {
 
   return (
     <div>
-      <IssueFilter />
       <div className={styles.container}>
         <table className={styles.table}>
           <thead>
