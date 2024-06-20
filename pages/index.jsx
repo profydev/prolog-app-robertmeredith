@@ -11,7 +11,7 @@ const LandingPage = () => {
   return (
     <div>
       <LandingNavigation />
-      <ContactModal />
+      {showModal && <ContactModal closeModal={() => setShowModal(false)} />}
       <button
         className={styles.contactButton}
         onClick={() => setShowModal(!showModal)}
