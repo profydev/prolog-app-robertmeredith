@@ -1,0 +1,32 @@
+@use "@styles/color";
+@use "@styles/space";
+@use "@styles/font";
+@use "@styles/breakpoint";
+
+.modal {
+  border: 1px solid red;
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  border-radius: 0.75rem;
+  background: color.$white;
+
+  /* Shadow/xl */
+  box-shadow:
+    0 20px 24px -4px rgb(16 24 40 / 10%),
+    0 8px 8px -4px rgb(16 24 40 / 4%);
+
+  @media (min-width: breakpoint.$mobile) {
+    width: 25rem;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  align-self: stretch;
+}
