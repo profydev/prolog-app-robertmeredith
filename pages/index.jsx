@@ -11,7 +11,14 @@ const LandingPage = () => {
   return (
     <div>
       <LandingNavigation />
-      {showModal && <ContactModal closeModal={() => setShowModal(false)} />}
+      {showModal && (
+        <ContactModal
+          closeModal={() => setShowModal(false)}
+          openEmail={() =>
+            (window.location.href = "mailto:prolog@profy.dev.?subject=Enquiry:")
+          }
+        />
+      )}
       <button
         className={styles.contactButton}
         onClick={() => setShowModal(!showModal)}
