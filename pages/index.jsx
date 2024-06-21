@@ -6,8 +6,6 @@ import { ContactModal } from "@features/common";
 const LandingPage = () => {
   const [showModal, setShowModal] = useState(false);
 
-  console.log("showModal", showModal);
-
   return (
     <div>
       <LandingNavigation />
