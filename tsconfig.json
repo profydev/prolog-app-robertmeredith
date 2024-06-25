@@ -21,7 +21,7 @@
       "@features/*": ["features/*"],
       "@styles/*": ["styles/*"],
       "@typings/*": ["typings/*"],
-      "@hooks/*": ["hooks/*"],
+      "@hooks/*": ["hooks/*"]
     },
     "noEmit": true
   },

@@ -1,3 +1,3 @@
 export * from "./components/hero";
 export * from "./components/social";
-export * from './components/testimonials'
+export * from "./components/testimonials";
