@@ -1,10 +1,23 @@
 import styles from "./index.module.scss";
 import { LandingNavigation } from "@features/layout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ContactModal } from "@features/common";
+import { Hero, Social, Testimonials } from "../features/landing";
+
+// import { useGetContent, ContentPages } from "@hooks/use-get-content";
 
 const LandingPage = () => {
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [showModal]);
+
+  // console.log(data);
 
   return (
     <div>
@@ -17,6 +30,9 @@ const LandingPage = () => {
           }
         />
       )}
+      <Hero />
+      <Social />
+      <Testimonials />
       <button
         className={styles.contactButton}
         onClick={() => setShowModal(!showModal)}

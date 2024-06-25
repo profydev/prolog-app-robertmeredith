@@ -6,7 +6,7 @@
 .overlay {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   // width: 90rem;
   // height: 77.25rem;
@@ -18,7 +18,7 @@
 
   /* Background blur/md */
   backdrop-filter: blur(8px);
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
 }

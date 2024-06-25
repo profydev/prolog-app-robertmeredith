@@ -1,5 +1,11 @@
 @use "color";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Inter, sans-serif;
   color: color.$gray-900;
