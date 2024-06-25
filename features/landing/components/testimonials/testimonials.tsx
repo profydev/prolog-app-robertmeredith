@@ -44,7 +44,7 @@ export const Testimonials = () => {
 
 const TestimonialCard = ({ testimonial }: { testimonial: TestimonialType }) => {
   return (
-    <div className={styles.testimonialCard}>
+    <section className={styles.testimonialCard}>
       <div className={styles.textBlock}>
         <div className={styles.userTech}>{testimonial.title}</div>
         <div className={styles.userText}>{testimonial.text}</div>
@@ -63,6 +63,6 @@ const TestimonialCard = ({ testimonial }: { testimonial: TestimonialType }) => {
           >{`${testimonial.userRole}, ${testimonial.userCompany}`}</div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

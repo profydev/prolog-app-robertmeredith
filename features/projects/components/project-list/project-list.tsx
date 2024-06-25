@@ -20,8 +20,6 @@ export function ProjectList() {
     );
   }
 
-  console.log("DATA : ", data);
-
   return (
     <ul className={styles.list}>
       {data?.map((project) => (

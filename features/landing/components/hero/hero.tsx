@@ -1,11 +1,12 @@
 import styles from "./hero.module.scss";
 import { useGetContent, ContentPages } from "@hooks/use-get-content";
+import { Loading, Error } from "@features/ui";
 
 export const Hero = () => {
   const { data, isLoading, error, isError } = useGetContent(ContentPages.home);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (isError) {
@@ -15,15 +16,15 @@ export const Hero = () => {
   const { title, subtitle, image } = data.sections[0];
 
   return (
-    <div className={styles.hero}>
+    <section className={styles.hero}>
       <div className={styles.textContainer}>
-        <h2 className={styles.title}>{title}</h2>
-        <h1 className={styles.subtitle}>{subtitle}</h1>
+        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.subtitle}>{subtitle}</h2>
       </div>
       <div className={styles.imageContainer}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={image.src} alt="macbook pro" className={styles.heroImage} />
       </div>
-    </div>
+    </section>
   );
 };

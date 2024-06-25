@@ -20,7 +20,7 @@ export const Social = () => {
   const content = data.sections[1];
 
   return (
-    <div className={styles.social}>
+    <section className={styles.social}>
       <div className={styles.contentContainer}>
         <div className={styles.title}>{content.title}</div>
         <div className={styles.logoContainer}>
@@ -37,6 +37,6 @@ export const Social = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };

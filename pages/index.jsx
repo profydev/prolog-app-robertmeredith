@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { ContactModal } from "@features/common";
 import { Hero, Social, Testimonials } from "../features/landing";
 
-// import { useGetContent, ContentPages } from "@hooks/use-get-content";
-
 const LandingPage = () => {
   const [showModal, setShowModal] = useState(false);
 
@@ -16,8 +14,6 @@ const LandingPage = () => {
       document.body.style.overflow = "unset";
     }
   }, [showModal]);
-
-  // console.log(data);
 
   return (
     <div>
