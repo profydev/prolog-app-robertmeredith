@@ -18,7 +18,6 @@
 }
 
 .contentContainer {
-  // border: 1px solid green;
   display: flex;
   flex-direction: column;
   max-width: 80rem;
@@ -32,12 +31,14 @@
 }
 
 .title {
-  // border: 1px solid pink;
   text-align: center;
+  color: color.$gray-500;
+
+  /* Text md/Medium */
+  font: font.$text-md-medium;
 }
 
 .logoContainer {
-  // border: 1px solid green;
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr 1fr;
@@ -54,10 +55,21 @@
 }
 
 .logo {
-  // border: 1px solid pink;
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.57rem;
+
+  @media (min-width: breakpoint.$tablet) {
+    gap: 0.85rem;
+  }
+}
+
+.icon {
+  height: 2.125rem;
+
+  @media (min-width: breakpoint.$tablet) {
+    height: 2.7rem;
+  }
 }
 
 .logo:nth-child(6) {
@@ -67,5 +79,6 @@
 }
 
 .logoText {
+  color: color.$gray-900;
   font: font.$text-lg-medium;
 }

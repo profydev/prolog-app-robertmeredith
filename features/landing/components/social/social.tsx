@@ -28,7 +28,11 @@ export const Social = () => {
           {content.companies.map((company: CompanyType, index: number) => (
             <div key={index} className={styles.logo}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={company.logo} alt={company.name} />
+              <img
+                className={styles.icon}
+                src={company.logo}
+                alt={`${company.name} logo`}
+              />
               <div className={styles.logoText}>{company.name}</div>
             </div>
           ))}

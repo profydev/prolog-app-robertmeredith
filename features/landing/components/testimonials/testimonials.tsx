@@ -25,8 +25,6 @@ export const Testimonials = () => {
 
   const content = data.sections[2];
 
-  console.log(content);
-
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
@@ -45,7 +43,6 @@ export const Testimonials = () => {
 };
 
 const TestimonialCard = ({ testimonial }: { testimonial: TestimonialType }) => {
-  // console.log(testimonial.userImage.src.split(".")[0] + ".png");
   return (
     <div className={styles.testimonialCard}>
       <div className={styles.textBlock}>
