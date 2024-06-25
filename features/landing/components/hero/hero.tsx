@@ -21,7 +21,6 @@ export const Hero = () => {
   if (isError) {
     return <div>Error: {(error as Error).message}</div>;
   }
-  console.log(data.sections[0]);
 
   const { title, subtitle, image } = data.sections[0];
 
@@ -33,10 +32,8 @@ export const Hero = () => {
         <h1 className={styles.subtitle}>{subtitle}</h1>
       </div>
       <div className={styles.imageContainer}>
-        <div className={styles.imageContent}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={image.src} alt="macbook pro" className={styles.heroImage} />
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={image.src} alt="macbook pro" className={styles.heroImage} />
       </div>
       {/* </div> */}
     </div>
