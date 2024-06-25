@@ -1,0 +1,169 @@
+@use "@styles/breakpoint";
+@use "@styles/space";
+@use "@styles/color";
+@use "@styles/font";
+@use "@styles/misc";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4rem;
+  gap: 4rem;
+  background-color: color.$gray-50;
+
+  @media (min-width: breakpoint.$mobile) {
+    background-color: color.$white;
+  }
+
+  @media (min-width: breakpoint.$tablet) {
+    padding: 6rem 2rem;
+  }
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 80rem;
+  padding: 0 1rem;
+  gap: 1.5rem;
+  text-align: center;
+
+  @media (min-width: breakpoint.$mobile) {
+    padding: 0 2rem;
+  }
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  color: color.$gray-900;
+
+  /* Display md/Semibold */
+  font: font.$display-md-semibold;
+  letter-spacing: -0.045rem;
+
+  @media (min-width: breakpoint.$mobile) {
+    /* Display xl/Semibold */
+    font: font.$display-xl-semibold;
+    letter-spacing: -0.075rem;
+  }
+}
+
+.subtitle {
+  margin: 0;
+  padding: 0;
+  color: color.$gray-500;
+
+  /* Text xl/Normal */
+  font: font.$text-xl-regular;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 90rem;
+
+  @media (min-width: breakpoint.$tablet) {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: breakpoint.$desktop) {
+    gap: 4rem;
+  }
+}
+
+.testimonialCard {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 1rem;
+  flex: 1 0 0;
+  background: color.$primary-50;
+  justify-content: space-between;
+  gap: 1.5rem;
+
+  .userName {
+    color: color.$primary-900;
+
+    /* Text md/Medium */
+    font: font.$text-md-medium;
+  }
+
+  .userRole {
+    color: color.$primary-700;
+
+    /* Text sm/Normal */
+    font: font.$text-sm-regular;
+  }
+
+  // every 2nd
+  &:nth-child(2n) {
+    background: color.$gray-50;
+
+    .userName {
+      color: color.$gray-900;
+
+      /* Text md/Medium */
+      font: font.$text-md-medium;
+    }
+
+    .userRole {
+      color: color.$gray-500;
+
+      /* Text sm/Regular */
+      font: font.$text-sm-regular;
+    }
+  }
+
+  @media (min-width: breakpoint.$tablet) {
+    padding: 2.5rem 1.5rem;
+    border-radius: 1rem;
+  }
+
+  @media (min-width: breakpoint.$desktop) {
+    min-height: 26rem;
+  }
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.75rem;
+  overflow: hidden;
+}
+
+.userTech {
+  color: color.$primary-700;
+
+  /* Text sm/Semibold */
+  font: font.$text-sm-semibold;
+}
+
+.userText {
+  color: color.$primary-900;
+
+  /* Display xs/Medium */
+  font: font.$display-xs-medium;
+}
+
+.avatarBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.avatarTextBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: center;
+}

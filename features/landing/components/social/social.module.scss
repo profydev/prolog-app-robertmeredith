@@ -1,0 +1,84 @@
+@use "@styles/breakpoint";
+@use "@styles/space";
+@use "@styles/color";
+@use "@styles/font";
+@use "@styles/misc";
+
+.social {
+  padding: 4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: color.$white;
+
+  @media (min-width: breakpoint.$mobile) {
+    background-color: color.$gray-50;
+    padding: 6rem 0;
+  }
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 80rem;
+  padding: 0 1rem;
+  flex: 1 0 0;
+  gap: 2rem;
+
+  @media (min-width: breakpoint.$mobile) {
+    padding: 0 2rem;
+  }
+}
+
+.title {
+  text-align: center;
+  color: color.$gray-500;
+
+  /* Text md/Medium */
+  font: font.$text-md-medium;
+}
+
+.logoContainer {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+
+  @media (min-width: breakpoint.$mobile) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: breakpoint.$tablet) {
+    display: flex;
+    justify-content: space-between;
+    gap: revert;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.57rem;
+
+  @media (min-width: breakpoint.$tablet) {
+    gap: 0.85rem;
+  }
+}
+
+.icon {
+  height: 2.125rem;
+
+  @media (min-width: breakpoint.$tablet) {
+    height: 2.7rem;
+  }
+}
+
+.logo:nth-child(6) {
+  @media (min-width: breakpoint.$tablet) {
+    display: none;
+  }
+}
+
+.logoText {
+  color: color.$gray-900;
+  font: font.$text-lg-medium;
+}
