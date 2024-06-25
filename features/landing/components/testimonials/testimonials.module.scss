@@ -5,12 +5,16 @@
 @use "@styles/misc";
 
 .container {
-  // border: 1px solid green;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4rem 0;
+  padding-top: 4rem;
   gap: 4rem;
+  background-color: color.$gray-50;
+
+  @media (min-width: breakpoint.$mobile) {
+    background-color: color.$white;
+  }
 
   @media (min-width: breakpoint.$tablet) {
     padding: 6rem 2rem;
@@ -18,7 +22,6 @@
 }
 
 .textContainer {
-  // border: 1px solid pink;
   display: flex;
   flex-direction: column;
   max-width: 80rem;
@@ -57,7 +60,6 @@
 }
 
 .cardsContainer {
-  // border: 1px solid green;
   display: flex;
   flex-direction: column;
   max-width: 90rem;
@@ -68,13 +70,11 @@
   }
 
   @media (min-width: breakpoint.$desktop) {
-    // flex-direction: row;
     gap: 4rem;
   }
 }
 
 .testimonialCard {
-  // border: 1px solid pink;
   display: flex;
   flex-direction: column;
   padding: 4rem 1rem;
@@ -127,7 +127,6 @@
 }
 
 .textBlock {
-  // border: 1px solid grey;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -136,7 +135,6 @@
 }
 
 .userTech {
-  // border: 1px solid pink;
   color: color.$primary-700;
 
   /* Text sm/Semibold */
@@ -151,7 +149,6 @@
 }
 
 .avatarBlock {
-  // border: 1px solid grey;
   display: flex;
   flex-direction: column;
   align-items: center;
