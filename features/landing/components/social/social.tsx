@@ -18,7 +18,6 @@ export const Social = () => {
   }
 
   const content = data.sections[1];
-  // console.log(content);
 
   return (
     <div className={styles.social}>
